@@ -8,9 +8,10 @@ pipeline {
                 sh 'git clone https://github.com/CUK-OPS/cuk-awx-ee.git'
             }
         }
-        stage('push repo to remote host') {
+        stage('Build docker image') {
             steps {
                 echo 'connect to remote host and pull down the latest version'
+                sh 'docker build -t padster2012/awx-ee-kerb:latest .'
             }
         }
         stage('Check website is up') {
