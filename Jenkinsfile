@@ -9,7 +9,7 @@ node {
     }
 
     stage('Build image') {
-  
+       sh 'docker --version'
        sh 'docker build -f padster2012/awx-ee-kerb:latest .'
     }
 
