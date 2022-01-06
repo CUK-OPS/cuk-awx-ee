@@ -8,12 +8,17 @@ pipeline {
                 sh 'git clone https://github.com/CUK-OPS/cuk-awx-ee.git'
             }
         }
-        stage('Build docker image') {
-            steps {
-                echo 'connect to remote host and pull down the latest version'
-                sh 'docker build -t padster2012/awx-ee-kerb:latest .'
-            }
-        }
+        
+        stage('Build image') {         
+       
+            app = docker.build("padster2012/awx-ee-kerb")    
+       }     
+        stage('Test image') {           
+            app.inside {            
+             
+             sh 'echo "Tests passed"'        
+            }    
+        }  
         stage('Check website is up') {
             steps {
                 echo 'Check website is up'
