@@ -10,7 +10,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("padster2012/awx-ee-kerb")
+       sh 'docker build -f padster2012/awx-ee-kerb:latest .'
     }
 
     stage('Test image') {
