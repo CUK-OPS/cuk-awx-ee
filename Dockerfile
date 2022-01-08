@@ -23,7 +23,6 @@ FROM $EE_BASE_IMAGE
 USER root
 
 RUN pip3 install "pywinrm>=0.2.2"
-RUN pip3 install "kerberos"
 
 COPY --from=galaxy /usr/share/ansible /usr/share/ansible
 
