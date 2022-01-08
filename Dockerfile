@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 
 MAINTAINER Kimbro Staken version: 0.1
 
-RUN DEBIAN_FRONTEND=noninteractive apt install -y tzdata
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y tzdata
 RUN apt-get update && apt-get install -y apache2 && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 ENV APACHE_RUN_USER www-data
