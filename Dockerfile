@@ -22,7 +22,7 @@ RUN assemble
 FROM $EE_BASE_IMAGE
 USER root
 
-RUN pip3 install "pywinrm>=0.2.2"
+RUN pip3 install "pywinrm[kerberos]>=0.2.2"
 
 COPY --from=galaxy /usr/share/ansible /usr/share/ansible
 
